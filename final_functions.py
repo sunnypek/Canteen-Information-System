@@ -9,7 +9,6 @@ from final_database import stalls
 ############################################################################################
 
 
-# sunny
 #display stalls which have special menu on certain days. eg. christmas, new years day
 def display_special_stall(date):
     date_array = re.split('[-| |:]', date)  # splits date into array of elements
@@ -39,7 +38,6 @@ def display_special_stall(date):
             print('Wrong input')
 
 
-# sunny
 #displays all the stalls. if stalls are not open, it will not be selectable and will show their opening timing
 def display_all_stalls(date):                                                                                                 #creates empty array to store all closed stalls at the given current time
     date_array = re.split('[-| |:]', date)                                                                              #splits date into array of elements
@@ -52,7 +50,6 @@ def display_all_stalls(date):                                                   
     odd_or_even_menu(dict_of_stalls, weekday, today, time)
 
 
-# sunny, siong yew
 #display stall by user input date
 def display_stall_by_date():
     date = date_time_check()                             #gets date which user entered
@@ -66,7 +63,6 @@ def display_stall_by_date():
         display_all_stalls(date)
 
 
-# sunny
 def print_stall(time):
     dict_of_stalls = {}                                         # creates an empty dictionary to compare user input with stall
     index = 0
@@ -96,7 +92,6 @@ def print_stall(time):
 ##############################################################################
 
 
-# sunny
 #checks the type of meal from the time. returns breakfast or lunch or dinner
 def check_type_of_meal(time):
     if 600 <= int(time) < 1200:             #if current time is between 800 - 1159, return breakfast menu
@@ -107,7 +102,6 @@ def check_type_of_meal(time):
         return 'dinner'
 
 
-# sunny
 #checks if stall is open by comparing the opening and closing time. returns true or false
 def check_if_stall_open(open_time, close_time, time):
     if int(open_time) <= int(time) < int(close_time):       #compares current time to stall opening and closing time
@@ -116,13 +110,11 @@ def check_if_stall_open(open_time, close_time, time):
         return False                                        #returns False if not within open and close time
 
 
-# sunny
 #returns the day of week number. monday = 1, tuesday = 2, etc
 def check_day_of_week():
     return datetime.today().weekday() + 1
 
 
-# sunny, siong yew
 #check if date input is correct format and a valid date
 def date_time_check():
     now = datetime.now()  # gets current date and time when program run
@@ -157,14 +149,12 @@ def date_time_check():
             print('Wrong time format.\n')
 
 
-# sunny
 #calculate queue time
 def queue_time(mins):
     people = no_of_people()
     return int(people) * int(mins)
 
 
-# sunny, siong yew
 #funtion to return valid number of people the user entered
 def no_of_people():
     while True:
@@ -183,7 +173,6 @@ def no_of_people():
 ###################################################################################################
 
 
-# sunny
 #displays special menu of selected stall
 def display_sel_stall_special_menu(name_of_stall, type_of_meal):
     stall = stalls[name_of_stall]                                           #assigns stall name to stall
@@ -193,7 +182,6 @@ def display_sel_stall_special_menu(name_of_stall, type_of_meal):
                 print('{:<30}'.format(item['name']), item['price'])
 
 
-# sunny
 #choose to display the odd or even menu
 def odd_or_even_menu(dict_of_stalls, weekday, today, time):
     while True:                                                                                                         #while loop to keep prompting user until correct input is receieved
@@ -220,7 +208,6 @@ def odd_or_even_menu(dict_of_stalls, weekday, today, time):
             print('Wrong input')
 
 
-# sunny
 #displays the user selected stall menu
 def display_sel_stall_all_menu(name_of_stall, type_of_meal):
     stall = stalls[name_of_stall]                                       #assigns stall name to stall
@@ -233,7 +220,6 @@ def display_sel_stall_all_menu(name_of_stall, type_of_meal):
     stall_menu_loop(name_of_stall)
 
 
-# sunny
 #displays the user selected stall menu that have odd number as key
 def display_sel_stall_odd_menu(name_of_stall, type_of_meal):
     stall = stalls[name_of_stall]                                           #assigns stall name to stall
@@ -247,7 +233,6 @@ def display_sel_stall_odd_menu(name_of_stall, type_of_meal):
     stall_menu_loop(name_of_stall)
 
 
-# sunny
 #display the user selected stall menu that have even number as key
 def display_sel_stall_even_menu(name_of_stall, type_of_meal):
     stall = stalls[name_of_stall]                                           #assigns stall name to stall
@@ -266,7 +251,6 @@ def display_sel_stall_even_menu(name_of_stall, type_of_meal):
 #################################################################################################
 
 
-# sunny
 #get user input to either exit to main menu or calculate queue time when user is at stall menu screen
 def stall_menu_loop(name_of_stall):
     while True:                                                             #while loop to keep prompting user until correct input is receieved
@@ -288,7 +272,6 @@ def stall_menu_loop(name_of_stall):
             print('Wrong input\n')
 
 
-# sunny
 #exits to main() if user input is 0
 def exit_loop():
     while True:
@@ -308,7 +291,6 @@ def exit_loop():
 ############################################################################
 
 
-# sunny
 #menu where user will select what they want to view or do
 def menu():
     now = datetime.now()  # gets current date and time when program run
@@ -333,7 +315,6 @@ def menu():
             print('Wrong input\n')
 
 
-# sunny
 #main menu
 def main():
     print('\n')
